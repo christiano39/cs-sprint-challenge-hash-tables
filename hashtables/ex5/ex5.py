@@ -6,7 +6,20 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    d = {}
+
+    for f in files:
+        filename = f.split('/')[-1]
+        if filename in d:
+            d[filename].append(f)
+        else:
+            d[filename] = [f]
+
+    result = []
+
+    for q in queries:
+        if q in d:
+            result += d[q]
 
     return result
 
